@@ -1,0 +1,24 @@
+doctype html
+html(lang="en")
+
+  h1 Divide and Vanish! 
+
+  body (ng-controller = "MainCtrl")
+    p. 
+      Can you bring all the numbers to 1? Drag two numbers together to divide them by their lowest common divisor. Continue your path from where you left off and try to make all the numbers equal to 1. (or maybe down to prime factors? This can be an added level of difficulty if we decide to implement it).
+
+    button.btn-primary(ng-click="reset()") Reset
+
+    canvas.id="myCanvas".width="200".height="200"
+      script
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        for (var index = 0, index < {{numbers.length}}, index ++)
+          ctx.fillStyle = "teal"
+          ctx.fillRect(positions[numbers.length][index][0],positions[numbers.length][index][1],20,21)
+          ctx.font = "30px Arial"
+          ctx.fillText("numbers[index]",positions[numbers.length][index][0],positions[numbers.length][index][1])
+
+
+    h3(ng-show = "loseFlag") Sorry, it seems you have reached a dead end. Try again? 
+    h2(ng-show = "winFlag") Congratulations! You won!
